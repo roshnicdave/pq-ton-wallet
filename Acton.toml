@@ -1,6 +1,6 @@
 [package]
 name = "pq-ton-wallet"
-description = "Post-quantum TON wallet research"
+description = "Post-quantum TON wallet with offline signing"
 version = "0.1.0"
 license = "MIT"
 

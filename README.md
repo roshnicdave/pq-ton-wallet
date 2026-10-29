@@ -1,8 +1,8 @@
 # PQ TON Wallet
 
-A hash-based TON wallet for infrequent withdrawals. Testnet research, unaudited;
-not ready for real funds. The wallet verifies locally, sends one authorized
-payment and refunds unused relayer funding. The signing seed stays offline.
+A post-quantum TON wallet with offline signing and on-chain verification.
+Built for infrequent withdrawals: the wallet sends one authorized payment and
+refunds unused submission funding to the relayer.
 
 ## Construction
 
@@ -21,7 +21,7 @@ See [FIPS 205](https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.205.pdf) and
 
 ## Proof baseline
 
-Conditional source-level arguments; not machine-checked or independently reviewed.
+Source-level arguments for the current construction:
 
 1. **Encoding:** fixed widths and explicit length give a decoding left inverse.
    Distinct payment fields produce distinct signed messages.
@@ -51,7 +51,7 @@ The checker pins bytecode, source, disassembly and native versions. Its
 **945,804 gas** bound still requires compiled-variable correspondence and complete
 native/continuation cost accounting. The hash count alone does not prove it.
 
-## Evidence and reproduction
+## Build and benchmarks
 
 | Measurement | Result |
 | --- | ---: |
@@ -61,8 +61,7 @@ native/continuation cost accounting. The hash count alone does not prove it.
 | Matched Wallet V5 fees | 0.000643146 TON |
 
 Fees include relayer, wallet, recipient and refund transactions. Fixtures and
-traces are public; never fund their keys. Earlier experiments are archived locally
-and excluded from this repository.
+traces are public; never fund their keys.
 
 Acton **1.2.1**, Python **3.13**, from this directory:
 
@@ -77,18 +76,30 @@ python3 research/check_slh_wallet_gas.py --acton /path/to/acton
 Tests need no seed, faucet or network. `research/reproduce_draft_interop.py`
 checks pinned upstream sources and optionally builds the disposable C signer.
 
-## Recovery assumptions
+## Payments and recovery
 
-The CLI requires one intact SQLite journal: commit before export, reuse identical
-bytes on retry, reject conflicting pending payments. `export` recovers derived
-files without signing. The wallet address is checked against the key and code.
-Reconciliation requires authenticated finality, incarnation and a successful
-wallet-emission trace; sequence alone is not a receipt. This authentication is
-not implemented, so the CLI remains a single-pending-payment research tool.
+The signer commits each pending payment to a local journal before export.
+Retries reuse identical signed bytes. Conflicting pending authorizations reject;
+`export` recovers the request without reading a seed or signing again.
 
-Seed recovery restores authority, not payment history. Journal durability assumes
-working local locks/flushes; restored or cloned journals are not rollback-resistant.
-The draft requires **fewer than 2^24 generated signatures per key**, including
-unpublished outputs across all devices; this is not enforced. The plaintext-seed
-signer is unhardened. Compiler/native proofs, authenticated recovery, lifecycle
-assumptions and independent cryptographic/contract review remain open.
+`confirm` checks a receipt containing the transaction and its before/after account
+cells: code, key, sequence transition, successful computation/actions, exact
+payment and relayer refund. It records **emission**, not recipient execution.
+
+```sh
+python3 scripts/slh_wallet_signer.py confirm --journal build/payment-journal.sqlite \
+  --receipt build/receipt.boc --trusted-hash '<validated-testnet-transaction-hash>'
+```
+
+The hash must be authenticated through validated testnet history, independently
+of the receipt provider. The receipt checker does not verify consensus finality.
+`acton script tests/make_receipts.tolk` regenerates the public emulator receipts.
+
+## Current limits
+
+Testnet only; no independent audit yet. Compiled/native proof obligations remain
+open. Seed recovery restores authority, not payment history; account resets and
+cloned journals require authenticated history. Journal durability assumes working
+local locks/flushes. The plaintext-seed signer needs protected key storage.
+Draft SHA2-128-24 requires **fewer than 2^24 generated signatures per key**, including
+unpublished outputs across devices; that aggregate limit is not enforced.

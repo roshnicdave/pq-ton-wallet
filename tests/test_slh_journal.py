@@ -16,8 +16,9 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "scripts"))
 from slh_wallet_journal import PaymentJournal
 from slh_wallet_signer import (export_record, frozen_wallet, payload, snake,
-                               validate_record, canonical, sign_payment)
-from pytoniq_core import begin_cell
+                               validate_record, canonical, sign_payment, CODE_HASH)
+from slh_wallet_receipt import verify_receipt
+from pytoniq_core import Cell, begin_cell
 
 
 def public_record(sequence=0):
@@ -170,6 +171,53 @@ class SlhJournalTests(unittest.TestCase):
         with self.assertRaises(FileNotFoundError): PaymentJournal(self.path)
         with self.assertRaises(sqlite3.OperationalError): self.journal.pending()
         self.assertFalse(self.path.exists())
+
+    def test_verified_emission_unlocks_next_payment_through_cli(self):
+        self.issue()
+        receipt = ROOT / "tests/fixtures/slh-wallet/receipt.boc"
+        trusted = Cell.one_from_boc(receipt.read_bytes()).refs[0].hash.hex()
+        result = subprocess.run([sys.executable, str(ROOT / "scripts/slh_wallet_signer.py"),
+            "confirm", "--journal", str(self.path), "--receipt", str(receipt),
+            "--trusted-hash", trusted], check=True, capture_output=True, text=True)
+        self.assertEqual(json.loads(result.stdout)["status"], "emitted")
+        with self.assertRaisesRegex(ValueError, "no pending"): self.journal.pending()
+        next_record = public_record(1)
+        self.assertEqual(self.journal.issue(self.public, next_record["payment"], lambda: next_record), next_record)
+
+    def test_failed_wallet_transaction_never_confirms_pending_payment(self):
+        self.issue()
+        receipt = ROOT / "tests/fixtures/slh-wallet/receipt-failed.boc"
+        trusted = Cell.one_from_boc(receipt.read_bytes()).refs[0].hash.hex()
+        result = subprocess.run([sys.executable, str(ROOT / "scripts/slh_wallet_signer.py"),
+            "confirm", "--journal", str(self.path), "--receipt", str(receipt),
+            "--trusted-hash", trusted], capture_output=True)
+        self.assertNotEqual(result.returncode, 0)
+        self.assertEqual(self.journal.pending(), self.record)
+
+    def test_receipt_hash_and_account_cells_must_match_checkpoint(self):
+        receipt = (ROOT / "tests/fixtures/slh-wallet/receipt.boc").read_bytes()
+        root = Cell.one_from_boc(receipt)
+        trusted = root.refs[0].hash.hex()
+        with self.assertRaisesRegex(ValueError, "transaction hash"):
+            verify_receipt(self.record, receipt, "00"*32, CODE_HASH)
+        swapped = (begin_cell().store_ref(root.refs[0]).store_ref(root.refs[2])
+                   .store_ref(root.refs[2]).end_cell().to_boc())
+        with self.assertRaisesRegex(ValueError, "state update"):
+            verify_receipt(self.record, swapped, trusted, CODE_HASH)
+        with self.assertRaisesRegex(ValueError, "code mismatch"):
+            verify_receipt(self.record, receipt, trusted, "00"*32)
+
+    def test_receipt_cannot_substitute_payment_fields_or_signing_key(self):
+        receipt = (ROOT / "tests/fixtures/slh-wallet/receipt.boc").read_bytes()
+        trusted = Cell.one_from_boc(receipt).refs[0].hash.hex()
+        for field, value in [("recipient", "0:"+"ff"*32), ("amount", self.payment["amount"]+1),
+                             ("body_hex", (bytes(4)+b"different").hex())]:
+            record = copy.deepcopy(self.record)
+            record["payment"][field] = value
+            with self.assertRaisesRegex(ValueError, "differs from authorization"):
+                verify_receipt(record, receipt, trusted, CODE_HASH)
+        with self.assertRaisesRegex(ValueError, "key, sequence or epoch"):
+            verify_receipt(self.record | {"public_key": "00"*32}, receipt, trusted, CODE_HASH)
 
 
 if __name__ == "__main__":

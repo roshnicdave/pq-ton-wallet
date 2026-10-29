@@ -88,16 +88,16 @@ class PaymentJournal:
                 raise ValueError("no pending request")
             return json.loads(row[0])
 
-    def reconcile_trusted_observation(self, next_sequence, chain_time, block_id,
+    def reconcile_trusted_observation(self, next_sequence, chain_time, checkpoint,
                                       committed_request_hash=None):
         """Requires authenticated finality/incarnation and a successful wallet trace.
 
         request_hash identifies committed payment emission, not mere submission.
-        This method does not authenticate the observation. No CLI exposes it.
+        This method does not authenticate the observation; the CLI checks receipt contents against a trusted hash.
         """
         if (type(next_sequence) is not int or not 0 <= next_sequence < 2**64 or
                 type(chain_time) is not int or not 0 <= chain_time < 2**32 or
-                not isinstance(block_id, str) or not block_id):
+                not isinstance(checkpoint, str) or not checkpoint):
             raise ValueError("invalid trusted observation")
         with closing(self.connect()) as db:
             db.execute("BEGIN IMMEDIATE")
@@ -112,21 +112,21 @@ class PaymentJournal:
             ident, encoded = row
             record = json.loads(encoded)
             if next_sequence == sequence + 1 and committed_request_hash == record["request_hash"]:
-                record["observation"] = dict(block_id=block_id, chain_time=chain_time,
+                record["observation"] = dict(checkpoint=checkpoint, chain_time=chain_time,
                                               next_sequence=next_sequence, request_hash=committed_request_hash)
                 db.execute("UPDATE requests SET status='emitted',record=? WHERE rowid=?",
                            (json.dumps(record, sort_keys=True), ident))
                 db.execute("UPDATE wallet SET next_seq=?", (str(next_sequence),))
             elif next_sequence == sequence and committed_request_hash is None:
                 if chain_time > record["payment"]["expires"]:
-                    record["observation"] = dict(block_id=block_id, chain_time=chain_time,
+                    record["observation"] = dict(checkpoint=checkpoint, chain_time=chain_time,
                                                   next_sequence=next_sequence)
                     db.execute("UPDATE requests SET status='expired',record=? WHERE rowid=?",
                                (json.dumps(record, sort_keys=True), ident))
             elif next_sequence > sequence:
                 # Unknown consumption is not evidence of this payment's emission.
                 db.execute("UPDATE wallet SET blocked=1")
-                record["unresolved_observation"] = dict(block_id=block_id, chain_time=chain_time,
+                record["unresolved_observation"] = dict(checkpoint=checkpoint, chain_time=chain_time,
                     next_sequence=next_sequence, request_hash=committed_request_hash)
                 db.execute("UPDATE requests SET record=? WHERE rowid=?",
                            (json.dumps(record, sort_keys=True), ident))

@@ -1,8 +1,4 @@
-"""Disposable SHA2-128-24 testnet signer. No mutable signing index or cache.
-
-The seed and C process memory are not hardened storage. Never use real funds.
-Build research/slh_testnet_io.c against the pinned interop sources first.
-"""
+"""Offline SHA2-128-24 signer and pending-payment management for TON testnet."""
 import argparse
 import json
 import os
@@ -165,8 +161,22 @@ def main():
     export = sub.add_parser("export", help="recover the committed request without signing or reading a seed")
     for name in ("journal", "request", "manifest"):
         export.add_argument("--"+name, type=Path, required=True)
+    confirm = sub.add_parser("confirm", help="verify a wallet-emission receipt and advance its journal")
+    for name in ("journal", "receipt"):
+        confirm.add_argument("--"+name, type=Path, required=True)
+    confirm.add_argument("--trusted-hash", required=True,
+                         help="finalized testnet transaction hash authenticated independently of the receipt provider")
     args = parser.parse_args()
-    if args.command == "journal-init":
+    if args.command == "confirm":
+        from slh_wallet_receipt import verify_receipt
+        journal = PaymentJournal(args.journal)
+        record = journal.pending()
+        validate_record(record)
+        result = verify_receipt(record, args.receipt.read_bytes(), args.trusted_hash, CODE_HASH)
+        journal.reconcile_trusted_observation(result["next_sequence"], result["chain_time"],
+            "transaction:" + result["transaction_hash"], result["request_hash"])
+        print(json.dumps(result))
+    elif args.command == "journal-init":
         public = bytes.fromhex(json.loads(args.public.read_text())["public_key"])
         wallet = frozen_wallet(public)
         PaymentJournal.create(args.journal, public, wallet)
