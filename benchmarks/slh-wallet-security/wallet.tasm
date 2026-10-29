@@ -1,0 +1,822 @@
+SETCP 0
+DICTPUSHCONST 19 [
+    0 => {
+        INMSG_BOUNCED
+        THROWIF_SHORT 0
+        DUP
+        SEMPTY
+        PUSHCONT_SHORT {
+            DROP
+        }
+        IFJMP
+        INMSG_VALUE
+        PUSHINT_LONG 1000000
+        PUSHINT_4 0
+        GETGASFEE
+        PUSHINT_4 4
+        PUSHPOW2 11
+        PUSHINT_4 0
+        GETFORWARDFEE
+        LSHIFT 1
+        ADD
+        GEQ
+        THROWIFNOT 406
+        DUP
+        SBITS
+        EQINT 32
+        PUSHCONT_SHORT {
+            DUP
+            SREFS
+            EQINT 2
+            NEQINT 0
+        }
+        PUSHCONT_SHORT {
+            PUSHINT_4 0
+        }
+        IFELSE
+        PUSHCONT_SHORT {
+            LDU 32
+            SWAP
+            PUSHINT_LONG 1397508183
+            EQUAL
+            NEQINT 0
+        }
+        PUSHCONT_SHORT {
+            PUSHINT_4 0
+        }
+        IFELSE
+        THROWIFNOT 400
+        LDREF
+        SWAP
+        CTOS
+        DUP
+        SBITS
+        PUSHINT_16 790
+        EQUAL
+        PUSHCONT_SHORT {
+            DUP
+            SREFS
+            EQINT 1
+            NEQINT 0
+        }
+        PUSHCONT_SHORT {
+            PUSHINT_4 0
+        }
+        IFELSE
+        THROWIFNOT 400
+        LDU 32
+        SWAP
+        PUSHINT_LONG 1347506993
+        EQUAL
+        THROWIFNOT 400
+        LDI 32
+        LDSTDADDR
+        LDSTDADDR
+        LDU 64
+        LDU 32
+        LDU 64
+        LDU 32
+        LDREF
+        ENDS
+        DUP
+        CTOS
+        ref {
+            DUP
+            SREFS
+            PUSHCONT_SHORT {
+                PUSHINT_4 0
+            }
+            PUSHCONT_SHORT {
+                DUP
+                SBITS
+                GTINT 31
+                NEQINT 0
+            }
+            IFELSE
+            PUSHCONT_SHORT {
+                DUP
+                SBITS
+                PUSHINT_16 984
+                LEQ
+                NEQINT 0
+            }
+            PUSHCONT_SHORT {
+                PUSHINT_4 0
+            }
+            IFELSE
+            PUSHCONT_SHORT {
+                DUP
+                SBITS
+                MODPOW2_ 3
+                EQINT 0
+                NEQINT 0
+            }
+            PUSHCONT_SHORT {
+                PUSHINT_4 0
+            }
+            IFELSE
+            PUSHCONT_SHORT {
+                PLDU 32
+                EQINT 0
+                NEQINT 0
+            }
+            PUSHCONT_SHORT {
+                DROP
+                PUSHINT_4 0
+            }
+            IFELSE
+            THROWIFNOT 400
+            XCHG_0I s8
+            PLDREFIDX 0
+            PUSHCTR c4
+            CTOS
+            LDU 128
+            LDU 128
+            LDU 64
+            LDU 32
+            ENDS
+            PUSH s11
+            EQINT -3
+            PUSHCONT_SHORT {
+                GLOBALID
+                PUSH s12
+                EQUAL
+                NEQINT 0
+            }
+            PUSHCONT_SHORT {
+                PUSHINT_4 0
+            }
+            IFELSE
+            THROWIFNOT 401
+            MYADDR
+            PUSH s11
+            SDEQ
+            THROWIFNOT 402
+            PUSH s10
+            REWRITESTDADDR
+            DROP
+            PUSH s10
+            REWRITESTDADDR
+            DROP
+            INMSG_SRC
+            REWRITESTDADDR
+            DROP
+            XCHG_0I s2
+            PUSHCONT_SHORT {
+                DROP
+                PUSHINT_4 0
+            }
+            PUSHCONT_SHORT {
+                EQINT 0
+                NEQINT 0
+            }
+            IFELSE
+            PUSHCONT_SHORT {
+                DROP
+                PUSHINT_4 0
+            }
+            IFREFELSE {
+                EQINT 0
+                NEQINT 0
+            }
+            THROWIFNOT 401
+            ref {
+                PUSH2 s6 s1
+                EQUAL
+                PUSHCONT_SHORT {
+                    PUSH s6
+                    PUSHPOW2DEC 64
+                    LESS
+                    NEQINT 0
+                }
+                PUSHCONT_SHORT {
+                    PUSHINT_4 0
+                }
+                IFELSE
+                THROWIFNOT 403
+                PUSH2 s5 s0
+                EQUAL
+                THROWIFNOT 404
+                NOW
+                PUSH s8
+                LEQ
+                THROWIFNOT 405
+                PUSH s8
+                GTINT 0
+                THROWIFNOT 400
+                BALANCE
+                INDEX 0
+                INMSG_VALUE
+                SUB
+                PUSH2 s0 s9
+                GEQ
+                THROWIFNOT 406
+                XCHG_0I s11
+                REWRITESTDADDR
+                PUSH s11
+                REWRITESTDADDR
+                NEWC
+                STSLICECONST x{50515331}
+                SWAP
+                XCHG_0I_LONG s16
+                SWAP
+                STI 32
+                XCHG_1I s1 s3
+                STI 8
+                STU 256
+                STI 8
+                XCHG_1I s1 s12
+                STU 256
+                PUSH s8
+                STUR 64
+                XCHG_1I s1 s7
+                STU 32
+                XCHG_1I s1 s5
+                STU 64
+                XCHG_1I s1 s3
+                STU 32
+                PUSH s9
+                CTOS
+                SBITS
+                RSHIFT 3
+                STUR 16
+                PUSH s9
+                STREFR
+                ENDC
+                PUSHREF {
+                }
+                TUPLE 0
+                SWAP
+                CTOS
+                PUSHINT_4 0
+                PUSHINT_4 0
+                PUSHINT_4 3
+                PUSHREFCONT {
+                    PUSH s2
+                    SBITS
+                    MODPOW2_ 3
+                    PUSHCONT_SHORT {
+                        PUSHINT_4 0
+                    }
+                    PUSHCONT_SHORT {
+                        PUSH s2
+                        SREFS
+                        LESSINT 2
+                        NEQINT 0
+                    }
+                    IFELSE
+                    THROWIFNOT 300
+                    PUSH s2
+                    SBITS
+                    RSHIFT 3
+                    XCHG_1I s1 s2
+                    ADD
+                    DUP
+                    PUSHPOW2DEC 8
+                    LEQ
+                    THROWIFNOT 300
+                    PUSH s2
+                    SBITS
+                    XCHG_1I s1 s3
+                    LDSLICEX
+                    XCHG2 s4 s4
+                    TPUSH
+                    PUSH s3
+                    SREFS
+                    PUSHCONT_SHORT {
+                        NIP
+                        ROTREV
+                        PUSHINT_4 -1
+                        RETALT
+                    }
+                    IFNOTJMP
+                    XCHG_0I s3
+                    PLDREFIDX 0
+                    CTOS
+                    ROTREV
+                }
+                REPEATBRK
+                BLKDROP2 1 2
+                THROWIFNOT 300
+                OVER
+                TLEN
+                PUSHCONT_SHORT {
+                    DUP
+                    GTINT 0
+                }
+                PUSHREFCONT {
+                    DEC
+                    PUSH2 s2 s0
+                    INDEXVAR
+                    NEWC
+                    STSLICE
+                    XCHG_1I s1 s4
+                    STREF
+                    ENDC
+                    XCHG_0I s3
+                }
+                ref {
+                    WHILE
+                    DROP
+                    NIP
+                    NEWC
+                    STSLICECONST x{00}
+                    STU 8
+                    STREF
+                    ENDC
+                    SWAP
+                    CTOS
+                    DUP
+                    SBITS
+                    PUSHINT_16 896
+                    EQUAL
+                    PUSHCONT_SHORT {
+                        DUP
+                        SREFS
+                        EQINT 1
+                        NEQINT 0
+                    }
+                    PUSHCONT_SHORT {
+                        PUSHINT_4 0
+                    }
+                    IFELSE
+                    THROWIFNOT 300
+                    PUSHINT_16 241
+                    CALLDICT 1
+                    DUP
+                    NEWC
+                    STU 128
+                    PUSH s5
+                    STUR 128
+                    PUSH s6
+                    STUR 128
+                    XCHG2 s0 s4
+                    CALLDICT 2
+                    PUSHINT_16 255
+                    EXPLODEVAR
+                    HASHEXT 0
+                    XCHG_0I s3
+                    NEWC
+                    STU 128
+                    PUSH s4
+                    STUR 128
+                    XCHG_1I s1 s3
+                    STU 256
+                    STSLICECONST x{00000000}
+                    BTOS
+                    SHA256U
+                    RSHIFT 16
+                    RSHIFT 72
+                    DUP
+                    PUSHPOW2DEC 22
+                    AND
+                    SWAP
+                    RSHIFT 24
+                    XCPUXC s3 s4 s-1
+                    PUXC s4 s-1
+                    CALLDICT 4
+                    XCHG3 s1 s3 s0
+                    PUSH s4
+                    ROTREV
+                    CALLDICT 5
+                    SWAP
+                    PUSHCONT_SHORT {
+                        NIP
+                        PUSHINT_4 0
+                    }
+                    PUSHCONT_SHORT {
+                        SWAP
+                        SEMPTY
+                        NEQINT 0
+                    }
+                    IFELSE
+                    THROWIFNOT 300
+                    PUSH s2
+                    EQUAL
+                    THROWIFNOT 407
+                    ref {
+                        XCHG_0I s2
+                        INC
+                        XCHG_0I s2
+                        NEWC
+                        STU 128
+                        STU 128
+                        STU 64
+                        XCHG_1I s1 s4
+                        STU 32
+                        ENDC
+                        POPCTR c4
+                        XCPU s1 s2
+                        SUB
+                        PUSHINT_4 0
+                        RAWRESERVE
+                        XCHG_0I s2
+                        CTOS
+                        NEWC
+                        STSLICE
+                        ENDC
+                        NEWC
+                        STSLICECONST x{42_}
+                        XCHG_1I s1 s3
+                        STSTDADDR
+                        SWAP
+                        STGRAMS
+                        PUSHINT_4 1
+                        STUR 107
+                        STREF
+                        ENDC
+                        PUSHINT_4 1
+                        SENDRAWMSG
+                        INMSG_SRC
+                        NEWC
+                        STSLICECONST x{42_}
+                        STSTDADDR
+                        PUSHINT_4 0
+                        STUR 111
+                        ENDC
+                        PUSHPOW2 7
+                        SENDRAWMSG
+                    }
+                }
+            }
+        }
+    }
+    1 => {
+        DUP
+        GTINT 0
+        THROWIFNOT 300
+        OVER
+        SBITS
+        PUSHCONT {
+            OVER
+            SREFS
+            EQINT 1
+            THROWIFNOT 300
+            SWAP
+            PLDREFIDX 0
+            CTOS
+            OVER
+            LESSINT 7
+            PUSH s2
+            PUSHINT_4 7
+            CONDSEL
+            OVER
+            SBITS
+            SWAP
+            LSHIFT 7
+            EQUAL
+            PUSHCONT_SHORT {
+                DUP
+                SREFS
+                PUSH s2
+                GTINT 7
+                PUSHINT_4 1
+                PUSHINT_4 0
+                CONDSEL
+                EQUAL
+                NEQINT 0
+            }
+            PUSHCONT_SHORT {
+                PUSHINT_4 0
+            }
+            IFELSE
+            THROWIFNOT 300
+            SWAP
+        }
+        IFNOT
+        DEC
+        SWAP
+        LDU 128
+        ROTREV
+    }
+    2 => {
+        SAVECTR c2
+        SAMEALTSAVE
+        SWAP
+        TUPLE 1
+        SWAP
+        CTOS
+        PUSHINT_4 0
+        PUSHINT_8 80
+        PUSHCONT {
+            OVER
+            SBITS
+            MODPOW2_ 3
+            PUSHCONT_SHORT {
+                PUSHINT_4 0
+            }
+            PUSHCONT_SHORT {
+                OVER
+                SREFS
+                LESSINT 2
+                NEQINT 0
+            }
+            IFELSE
+            THROWIFNOT 300
+            OVER
+            SBITS
+            RSHIFT 3
+            ADD
+            DUP
+            PUSHINT_16 8450
+            LEQ
+            THROWIFNOT 300
+            NEWC
+            PUSH s2
+            SBITS
+            XCHG_1I s1 s3
+            LDSLICEX
+            XCHG_0I s3
+            STSLICE
+            XCHG_1I s1 s3
+            TPUSH
+            OVER
+            SREFS
+            PUSHCONT_SHORT {
+                BLKDROP2 2 1
+                RETALT
+            }
+            IFNOTJMP
+            SWAP
+            PLDREFIDX 0
+            CTOS
+            ROT
+        }
+        REPEAT
+        THROW 300
+    }
+    3 => {
+        PUSHCONT_SHORT {
+            DUP
+            LESSINT 3
+        }
+        PUSHCONT {
+            PUSH2 s2 s0
+            STUR 32
+            XCHG_1I s1 s2
+            STU 128
+            BTOS
+            SHA256U
+            RSHIFT 128
+            SWAP
+            INC
+        }
+        WHILE
+        DROP
+        NIP
+    }
+    4 => {
+        PUSH s2
+        NEWC
+        STU 128
+        PUSHINT_4 0
+        STUR 256
+        PUSHINT_4 3
+        STUR 208
+        PUSH s2
+        STUR 32
+        SWAP
+        NEWC
+        STU 144
+        BTOS
+        NEWC
+        PUSHINT_4 0
+        PUSHCONT_SHORT {
+            DUP
+            LESSINT 6
+        }
+        PUSHREFCONT {
+            DUP
+            LSHIFT 24
+            XCHG_0I s3
+            LDU 24
+            XCHG_0I s4
+            ADD
+            PUSH s4
+            STSLICECONST x{00000000}
+            OVER
+            STUR 32
+            XCHG2 s9 s8
+            CALLDICT 1
+            XCHG2 s0 s9
+            STU 128
+            BTOS
+            SHA256U
+            RSHIFT 128
+            PUSHINT_4 0
+            PUSHCONT_SHORT {
+                DUP
+                LESSINT 24
+            }
+            PUSHCONT {
+                XCHG2 s2 s9
+                CALLDICT 1
+                PUSH2 s7 s10
+                INC
+                STUR 32
+                PUSH s12
+                RSHIFT 1
+                STUR 32
+                PUSH s12
+                PUSHINT_4 1
+                AND
+                PUSHCONT_SHORT {
+                    STU 128
+                    XCHG_1I s1 s3
+                    STU 128
+                }
+                PUSHCONT_SHORT {
+                    XCHG_1I s1 s4
+                    STU 128
+                    XCHG_1I s1 s3
+                    STU 128
+                }
+                IFELSE
+                BTOS
+                SHA256U
+                RSHIFT 128
+                XCHG_0I s10
+                RSHIFT 1
+                XCHG_0I s9
+                INC
+                XCHG_IJ s9 s10
+                XCHG3 s1 s9 s0
+            }
+            WHILE
+            DROP
+            POP s9
+            XCHG2 s8 s2
+            STU 128
+            XCHG_0I s7
+            INC
+            XCHG_1I s1 s7
+        }
+        WHILE
+        XCHG_1I s1 s3
+        BLKDROP 3
+        XCHG_0I s2
+        NEWC
+        STU 128
+        PUSHINT_4 0
+        STUR 256
+        PUSHINT_4 4
+        STUR 208
+        STU 32
+        PUSHINT_4 0
+        STUR 64
+        SWAP
+        TUPLE 2
+        PUSHINT_16 255
+        EXPLODEVAR
+        HASHEXT 0
+        RSHIFT 128
+    }
+    5 => {
+        DUP
+        NEWC
+        STU 128
+        BTOS
+        PUSHINT_4 0
+        PUSHINT_8 64
+        PUSHCONT_SHORT {
+            PUSHINT_4 3
+            XCHG_0I s2
+            LDU 2
+            XCHG_0I s3
+            SUBR
+            ADD
+        }
+        REPEAT
+        NIP
+        SWAP
+        NEWC
+        STU 128
+        STU 8
+        BTOS
+        PUSH s2
+        NEWC
+        STU 128
+        PUSHINT_4 0
+        STUR 256
+        PUSHINT_4 0
+        STUR 208
+        PUSH s2
+        STUR 32
+        PUSH s3
+        NEWC
+        STU 128
+        PUSHINT_4 0
+        STUR 256
+        PUSHINT_4 1
+        STUR 208
+        PUSH s3
+        STUR 32
+        PUSHINT_4 0
+        STUR 64
+        TUPLE 1
+        NEWC
+        PUSHINT_4 0
+        PUSHCONT_SHORT {
+            DUP
+            LESSINT 68
+        }
+        PUSHCONT {
+            PUSH2 s3 s0
+            STUR 32
+            XCHG2 s9 s8
+            CALLDICT 1
+            XCHG_0I s6
+            LDU 2
+            XCHG3 s10 s7 s7
+            CALLDICT 3
+            ROT
+            STU 128
+            XCHG_0I s8
+            INC
+            DUP
+            PUSHINT_4 7
+            MOD
+            PUSHCONT_SHORT {
+                XCHG2 s2 s8
+                TPUSH
+                NEWC
+                XCHG2 s2 s8
+            }
+            IFNOT
+            XCHG_1I s1 s8
+        }
+        WHILE
+        DROP
+        BLKDROP2 2 2
+        TPUSH
+        PUSHINT_16 255
+        EXPLODEVAR
+        HASHEXT 0
+        ref {
+            RSHIFT 128
+            XCHG_0I s2
+            NEWC
+            STU 128
+            PUSHINT_4 0
+            STUR 256
+            PUSHPOW2 33
+            STUR 240
+            PUSHINT_4 0
+            PUSHCONT_SHORT {
+                DUP
+                LESSINT 22
+            }
+            PUSHCONT {
+                XCHG2 s5 s4
+                CALLDICT 1
+                PUSH2 s6 s5
+                INC
+                STUR 32
+                PUSH s4
+                RSHIFT 1
+                STUR 32
+                PUSH s4
+                PUSHINT_4 1
+                AND
+                PUSHCONT_SHORT {
+                    STU 128
+                    XCHG_1I s1 s4
+                    STU 128
+                }
+                PUSHCONT_SHORT {
+                    XCHG_1I s1 s5
+                    STU 128
+                    XCHG_1I s1 s4
+                    STU 128
+                }
+                IFELSE
+                BTOS
+                SHA256U
+                RSHIFT 128
+                XCHG_0I s2
+                RSHIFT 1
+                XCHG_0I s4
+                INC
+                XCHG_1I s1 s5
+                XCHG_IJ s3 s4
+                XCHG_IJ s2 s3
+            }
+            WHILE
+            BLKDROP 3
+        }
+    }
+    101294 => {
+        PUSHCTR c4
+        CTOS
+        LDU 128
+        NIP
+        LDU 128
+        NIP
+        LDU 64
+        LDU 32
+        NIP
+        ENDS
+    }
+]
+DICTIGETJMPZ
+THROWARG 11

@@ -1,0 +1,26 @@
+[
+  {
+    "public_manifest": "tests/fixtures/slh-wallet/seq0.json",
+    "canonical_bytes": 115,
+    "independent_encoding_matches": true,
+    "noble_signature_valid": true,
+    "sequence": 0,
+    "wallet": "0:ad78c7e8474f66e4ad0701425a3ca3b593aad3a4cffeddad965a1d758a7df7e5"
+  },
+  {
+    "public_manifest": "tests/fixtures/slh-wallet/seq1.json",
+    "canonical_bytes": 115,
+    "independent_encoding_matches": true,
+    "noble_signature_valid": true,
+    "sequence": 1,
+    "wallet": "0:ad78c7e8474f66e4ad0701425a3ca3b593aad3a4cffeddad965a1d758a7df7e5"
+  },
+  {
+    "public_manifest": "build/slh-live-request.json",
+    "canonical_bytes": 115,
+    "independent_encoding_matches": true,
+    "noble_signature_valid": true,
+    "sequence": 0,
+    "wallet": "0:31f37efe5ae6e9b5980583133b024f089a9e85788a58eb930b93c731d0ce36c8"
+  }
+]

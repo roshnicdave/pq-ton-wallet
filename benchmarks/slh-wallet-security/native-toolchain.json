@@ -1,0 +1,44 @@
+{
+  "acton_version": "1.2.1 (1359491 2026-10-05)",
+  "acton_commit": "13594911b09b0a9bc68910111e0bb88a74161f5b",
+  "acton_binary_sha256": "c90a9a71e80186aba0ccf94670c877eedcd76f580f44da8785adf8fe2b8f502b",
+  "native_emulator_commit": "9334027d63528da1a78b2efbe898bc586d4e6cec",
+  "native_tolk_commit": "9334027d63528da1a78b2efbe898bc586d4e6cec",
+  "native_tolk_version": "1.5.0",
+  "reference_ton_commit": "857b8a57a178e6ae0fe7fa86e7d81c5233de8560",
+  "compared_source_count": 13,
+  "byte_identical_files": [
+    "crypto/vm/cellops.cpp",
+    "crypto/vm/contops.cpp",
+    "crypto/vm/dictops.cpp",
+    "crypto/vm/opctable.cpp",
+    "crypto/vm/arithops.cpp",
+    "crypto/vm/stackops.cpp",
+    "crypto/vm/tupleops.cpp"
+  ],
+  "pricing_constants_equal": {
+    "cell_load_gas_price": 100,
+    "cell_reload_gas_price": 25,
+    "cell_create_gas_price": 500,
+    "exception_gas_price": 50,
+    "tuple_entry_gas_price": 1,
+    "implicit_jmpref_gas_price": 10,
+    "implicit_ret_gas_price": 5,
+    "free_nested_cont_jump": 8,
+    "free_stack_depth": 32,
+    "stack_entry_gas_price": 1,
+    "hash_ext_entry_gas_price": 1
+  },
+  "late_state_limit_failure": {
+    "native_observed_fine_nano": 0,
+    "native_staged_messages": 2,
+    "native_committed_messages": 0,
+    "reference_fine_nano_from_source": 1666,
+    "reference_execution_not_run": true
+  },
+  "positive_message_limit_failure": {
+    "native_observed_fine_nano": 1666,
+    "exit_code": 40
+  },
+  "scope": "Native and reference revisions are distinct. Fee upper bound covers both; this is not a general equivalence proof."
+}

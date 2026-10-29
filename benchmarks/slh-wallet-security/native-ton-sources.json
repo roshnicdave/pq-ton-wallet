@@ -1,0 +1,20 @@
+{
+  "ton_commit": "9334027d63528da1a78b2efbe898bc586d4e6cec",
+  "acton_commit": "13594911b09b0a9bc68910111e0bb88a74161f5b",
+  "source": "native emulator self-report via acton doctor, API probes disabled",
+  "sources": {
+    "crypto/vm/cells/CellSlice.cpp": "bcbe0630d33128289100cce28674b83f4750be28e2eb62957d7ce3ac953466b7",
+    "crypto/vm/cellops.cpp": "9584e368fde2ede21a074c7a7a712b9291d83cf14a82f304e22b0f2140d17dbf",
+    "crypto/vm/continuation.cpp": "7e75afb4a9ee6b9a3d7cbbbf8052f6c78c525bf37a5ee954b01367b2ee07465c",
+    "crypto/vm/contops.cpp": "c75f18fd6a029da62e833a42428df781c8da46dea993f3334119c8c5194c243e",
+    "crypto/vm/dictops.cpp": "0ff272bca0007dc886511286d35dbec15bdf84f19b4d1fa768040d02168439b3",
+    "crypto/vm/opctable.cpp": "3e0ed5260e68dd9d4438e30b996e188b76fbfa7a333bb7ef686ab59f27203790",
+    "crypto/vm/tonops.cpp": "d9b4a189e6d42ecebb184d505f13c1e14f95bb89229874812f7aa43f480cb9d2",
+    "crypto/vm/vm.cpp": "52f27d720e9905571831f4f6d766b95ab7bc8f973e29c79d5cf1ced598aa6f08",
+    "crypto/vm/vm.h": "ffc245b5a2bc5eee4d5a46b5b399a37b8549f244421366f5d9c7e25a274abfdf",
+    "crypto/block/transaction.cpp": "4389720bd43cac31351994558b27ff13daea61e89177b97211d98c19ee7d0026",
+    "crypto/vm/arithops.cpp": "d22e809e22e25bce055998a60557908f2780065a6f9c9969c6053d99c600c39c",
+    "crypto/vm/stackops.cpp": "de0d5eb669f49a7f137bc4e83fbb42783c1aee00037e267206c2df1083a8a575",
+    "crypto/vm/tupleops.cpp": "8629c1f98db85beb236cfcd02b942febd79e2b14e75c445e8bb841732769bf00"
+  }
+}

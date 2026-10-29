@@ -1,0 +1,137 @@
+{
+  "base_url": "https://raw.githubusercontent.com/nconsigny/SPHINCS-/0b3e36353abaa64625cb9a5050f0812eb915d342/",
+  "files": [
+    {
+      "path": "signers/noble-slh-dsa/package-lock.json",
+      "sha256": "fd3a175576865d2820009c28c9be3d37fe9085cf28b6146cbcae7d3dfec59361"
+    },
+    {
+      "path": "signers/noble-slh-dsa/package.json",
+      "sha256": "2ac7c79189b0c675e4b4f1dddec8fb015ea8607f35f5ca4cd7bf21a0b0c0c572"
+    },
+    {
+      "path": "signers/noble-slh-dsa/patch-noble.mjs",
+      "sha256": "2cf2aa1f8995007fc876dc544534cbad10e6782e9630e1bed8093f4e34ea7d45"
+    },
+    {
+      "path": "signers/sphincsplus-128-24/LICENSE.upstream",
+      "sha256": "5797220e196e5b833db8435b188db410c3828739580c42cf615d765b9cdec5d2"
+    },
+    {
+      "path": "signers/sphincsplus-128-24/Makefile",
+      "sha256": "37d0a496bfa8feaf3f0308000b1397346b2fa6f63e1e11fd47b28cbc61d77864"
+    },
+    {
+      "path": "signers/sphincsplus-128-24/address.c",
+      "sha256": "e07ecc87e564db0f2055b761d9b9a56edec7cb7508e3410117e857f4e4e5a5aa"
+    },
+    {
+      "path": "signers/sphincsplus-128-24/address.h",
+      "sha256": "86b33648b11e72d09c21e4b478881f5e6aaf6770ef47a29df6fd7d424aaa4a88"
+    },
+    {
+      "path": "signers/sphincsplus-128-24/api.h",
+      "sha256": "a0c7abd648a4a695ff031f034a68e431559338c37890b428f21ce3fd91314636"
+    },
+    {
+      "path": "signers/sphincsplus-128-24/context.h",
+      "sha256": "6953afd8e8d45fab9f47bf8beeac549fdb45aeb02c2d2e263c1304b3d11ccc85"
+    },
+    {
+      "path": "signers/sphincsplus-128-24/fors.c",
+      "sha256": "28db85181bcb8624b363470dc98e86d3af94ca7f06448d311cd3eb7aa5230015"
+    },
+    {
+      "path": "signers/sphincsplus-128-24/fors.h",
+      "sha256": "349cbe538ae0c6510b8ceeb9685e40b226a7386ce2e2454c3269c354cb42f2a5"
+    },
+    {
+      "path": "signers/sphincsplus-128-24/hash.h",
+      "sha256": "2b09886addb6b9628e645d0054bc06ff1eb418f59a778c8a4b741b7184a6b1bd"
+    },
+    {
+      "path": "signers/sphincsplus-128-24/hash_sha2.c",
+      "sha256": "d07cfd09c78954c82bf2c0ebf0303411170afa209965d20e87da4815c3f1a02d"
+    },
+    {
+      "path": "signers/sphincsplus-128-24/main.c",
+      "sha256": "4f69f6dd82d3b7bcb20ebf2704dba350a1e2592e8b7d2ad0de8ade6362703f99"
+    },
+    {
+      "path": "signers/sphincsplus-128-24/merkle.c",
+      "sha256": "822c402a9dbe43274d2dad92ff215e80b20a5464c16ac59ee57d2d5079aedea6"
+    },
+    {
+      "path": "signers/sphincsplus-128-24/merkle.h",
+      "sha256": "2f704262633f56514218bb79798079102e50393879520c9d05b2bf77005ce23f"
+    },
+    {
+      "path": "signers/sphincsplus-128-24/params.h",
+      "sha256": "35e262c1f61043e65a6376ac5e34635bc98a9a30413335e137b7138f8f9c3f9c"
+    },
+    {
+      "path": "signers/sphincsplus-128-24/randombytes.c",
+      "sha256": "1a90ce693874fb9d7f43e26c6a3c16514db45ab2eba534809e4caa2ee72f54dc"
+    },
+    {
+      "path": "signers/sphincsplus-128-24/randombytes.h",
+      "sha256": "cb0022583e425fcf2cbb9227519893e336d194b04e7d8083c4ed6c60dbbfd7e4"
+    },
+    {
+      "path": "signers/sphincsplus-128-24/sha2.c",
+      "sha256": "cbe87248a6a794cf92df33759cbad5ac5f1a2df390edcbb292f07d44baa2de09"
+    },
+    {
+      "path": "signers/sphincsplus-128-24/sha2.h",
+      "sha256": "c5b7768e75d52c68111b3cdf3e1b192d52bccb85e0ba9fa0ac2437bc3f427f83"
+    },
+    {
+      "path": "signers/sphincsplus-128-24/sha2_offsets.h",
+      "sha256": "fbbece33219c2fcc4c76616ea779fbec1a977715a9fc0ac2c9c1b61c2e902f76"
+    },
+    {
+      "path": "signers/sphincsplus-128-24/sign.c",
+      "sha256": "4015a353fa2b0433de4c1d0496a847cede14ffd7f9e60c92a25c8c2dffbce2a0"
+    },
+    {
+      "path": "signers/sphincsplus-128-24/thash.h",
+      "sha256": "9a81d94591cb7d97606b0927525e59994b70b0043301f47861f98570d9e3cec2"
+    },
+    {
+      "path": "signers/sphincsplus-128-24/thash_sha2_simple.c",
+      "sha256": "a6da924ab60437c37466a1fd2afe65cf9d7ae8edaba8458d345209cbb901c688"
+    },
+    {
+      "path": "signers/sphincsplus-128-24/utils.c",
+      "sha256": "9c3d1b5929997d3986d66c826a73c0f2cd39b36c68122c8823719ac52f719887"
+    },
+    {
+      "path": "signers/sphincsplus-128-24/utils.h",
+      "sha256": "06d3eaf20944104873d9e143dce2c049719d4aff4a5073c70551bed79c5fa314"
+    },
+    {
+      "path": "signers/sphincsplus-128-24/utilsx1.c",
+      "sha256": "c66cb53481cc2a02c44e53e5ec428d9565b51ee3554e1445d29ae5b731486773"
+    },
+    {
+      "path": "signers/sphincsplus-128-24/utilsx1.h",
+      "sha256": "1df02869660b96a0e79205bfa6bf09b999392c42aeb5469f64b565cd5cdef752"
+    },
+    {
+      "path": "signers/sphincsplus-128-24/wots.c",
+      "sha256": "e0624601c3bfa0c2878ed7be1efb75a490a10453d3e2ca70910883fe46258c7e"
+    },
+    {
+      "path": "signers/sphincsplus-128-24/wots.h",
+      "sha256": "18a7c81e8006bef01e33e2894f51f3d54583f43c29a631691cbb1e1c46674655"
+    },
+    {
+      "path": "signers/sphincsplus-128-24/wotsx1.c",
+      "sha256": "37159c12b101033de2a53fe4125f9c5d8f254115e9e19f6b34d3b715c03f759b"
+    },
+    {
+      "path": "signers/sphincsplus-128-24/wotsx1.h",
+      "sha256": "fdf5431c896cba8814fb5a682df259ba5267d0643e726469801ee9f33810a024"
+    }
+  ]
+}

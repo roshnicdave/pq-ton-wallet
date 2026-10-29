@@ -1,0 +1,17 @@
+.acton/
+.studio/
+build/
+dist/
+gen/
+node_modules/
+__pycache__/
+*.pyc
+*.sqlite*
+*.bin
+*.mnemonic
+*.tar.gz
+.env
+wallets.toml
+global.wallets.toml
+global.libraries.toml
+.DS_Store

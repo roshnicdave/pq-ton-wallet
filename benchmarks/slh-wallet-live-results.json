@@ -1,0 +1,221 @@
+{
+  "network": "TON testnet",
+  "retrieved_utc": "2026-10-28T01:14:00.369489+00:00",
+  "source": "https://testnet.toncenter.com/api/v3/transactions",
+  "accounts": {
+    "relayer": "0:8fd978866840cd398efed4d694a5b739caf2ddfd2a947efd87a3b3cb5262b0fd",
+    "wallet": "0:31f37efe5ae6e9b5980583133b024f089a9e85788a58eb930b93c731d0ce36c8",
+    "recipient": "0:b8d6e48258e8e1eb8112b20bb4731a0f364e5ded3bedbdf5e758ef7af75d8954"
+  },
+  "traces": {
+    "deployment_and_initial_funding": {
+      "trace_id": "beHe2tsV157yeehkJODhlZf8MQswSLEJUmx5naItqrQ=",
+      "transactions": [
+        {
+          "role": "relayer",
+          "account": "0:8FD978866840CD398EFED4D694A5B739CAF2DDFD2A947EFD87A3B3CB5262B0FD",
+          "hash": "beHe2tsV157yeehkJODhlZf8MQswSLEJUmx5naItqrQ=",
+          "lt": "105907300000001",
+          "unix_time": 1793149408,
+          "aborted": false,
+          "gas_used": 4939,
+          "compute_fee_nano": 329268,
+          "storage_fee_nano": 4764,
+          "action_fee_nano": 298462,
+          "total_fees_nano": 1621495,
+          "outbound_forward_fees_nano": 596939,
+          "inbound_value_nano": 0,
+          "outbound_values_nano": [
+            300000000
+          ],
+          "balance_before_nano": 1178821476,
+          "balance_after_nano": 876603042,
+          "balance_delta_nano": -302218434
+        },
+        {
+          "role": "wallet",
+          "account": "0:31F37EFE5AE6E9B5980583133B024F089A9E85788A58EB930B93C731D0CE36C8",
+          "hash": "Qgy0YuvDANnWDtkHQQ9R8faaISJZVdhM9KwnYw9ekhM=",
+          "lt": "105907300000003",
+          "unix_time": 1793149408,
+          "aborted": false,
+          "gas_used": 741,
+          "compute_fee_nano": 49401,
+          "storage_fee_nano": 0,
+          "action_fee_nano": 0,
+          "total_fees_nano": 49401,
+          "outbound_forward_fees_nano": 0,
+          "inbound_value_nano": 300000000,
+          "outbound_values_nano": [],
+          "balance_before_nano": 0,
+          "balance_after_nano": 299950599,
+          "balance_delta_nano": 299950599
+        }
+      ],
+      "network_fees_nano": 2267835,
+      "sum_balance_deltas_nano": -2267835
+    },
+    "withdrawal": {
+      "trace_id": "tyiUihnkSclIdygWSxQUTh2b5kwpHxRdORKFgdY1hCk=",
+      "transactions": [
+        {
+          "role": "relayer",
+          "account": "0:8FD978866840CD398EFED4D694A5B739CAF2DDFD2A947EFD87A3B3CB5262B0FD",
+          "hash": "tyiUihnkSclIdygWSxQUTh2b5kwpHxRdORKFgdY1hCk=",
+          "lt": "105907655000001",
+          "unix_time": 1793149550,
+          "aborted": false,
+          "gas_used": 4939,
+          "compute_fee_nano": 329268,
+          "storage_fee_nano": 7,
+          "action_fee_nano": 813098,
+          "total_fees_nano": 3681574,
+          "outbound_forward_fees_nano": 1626236,
+          "inbound_value_nano": 0,
+          "outbound_values_nano": [
+            80000000
+          ],
+          "balance_before_nano": 876603042,
+          "balance_after_nano": 0,
+          "balance_delta_nano": -876603042
+        },
+        {
+          "role": "relayer",
+          "account": "0:8FD978866840CD398EFED4D694A5B739CAF2DDFD2A947EFD87A3B3CB5262B0FD",
+          "hash": "0FOXy2YKC9itfTeudVbElkQuateagsXU4j/mjPtfJaI=",
+          "lt": "105907655000006",
+          "unix_time": 1793149550,
+          "aborted": false,
+          "gas_used": 546,
+          "compute_fee_nano": 36401,
+          "storage_fee_nano": 0,
+          "action_fee_nano": 0,
+          "total_fees_nano": 36401,
+          "outbound_forward_fees_nano": 0,
+          "inbound_value_nano": 55120530,
+          "outbound_values_nano": [],
+          "balance_before_nano": 0,
+          "balance_after_nano": 846379361,
+          "balance_delta_nano": 846379361
+        },
+        {
+          "role": "wallet",
+          "account": "0:31F37EFE5AE6E9B5980583133B024F089A9E85788A58EB930B93C731D0CE36C8",
+          "hash": "ONrMr5J1lpg6SnoQNQ9zG+brDXtpfu+Fw9UyOpnd/mg=",
+          "lt": "105907655000003",
+          "unix_time": 1793149550,
+          "aborted": false,
+          "gas_used": 370972,
+          "compute_fee_nano": 24731469,
+          "storage_fee_nano": 8,
+          "action_fee_nano": 49331,
+          "total_fees_nano": 24780808,
+          "outbound_forward_fees_nano": 98670,
+          "inbound_value_nano": 80000000,
+          "outbound_values_nano": [
+            10000000,
+            55120530
+          ],
+          "balance_before_nano": 299950599,
+          "balance_after_nano": 289950591,
+          "balance_delta_nano": -10000008
+        },
+        {
+          "role": "recipient",
+          "account": "0:B8D6E48258E8E1EB8112B20BB4731A0F364E5DED3BEDBDF5E758EF7AF75D8954",
+          "hash": "hV+R2dhP9Cg2qVAiznTz2/9CJxv1g97oDcDLnaATEaY=",
+          "lt": "105907655000005",
+          "unix_time": 1793149550,
+          "aborted": false,
+          "gas_used": 778,
+          "compute_fee_nano": 51868,
+          "storage_fee_nano": 4771,
+          "action_fee_nano": 0,
+          "total_fees_nano": 56639,
+          "outbound_forward_fees_nano": 0,
+          "inbound_value_nano": 10000000,
+          "outbound_values_nano": [],
+          "balance_before_nano": 47815435,
+          "balance_after_nano": 57758796,
+          "balance_delta_nano": 9943361
+        }
+      ],
+      "network_fees_nano": 30280328,
+      "sum_balance_deltas_nano": -30280328
+    },
+    "standard_v5": {
+      "trace_id": "wkHUzIJCONNHM0+YuEokz7qZwbN4rnaqiIEtxdUo+YQ=",
+      "transactions": [
+        {
+          "role": "relayer",
+          "account": "0:8FD978866840CD398EFED4D694A5B739CAF2DDFD2A947EFD87A3B3CB5262B0FD",
+          "hash": "wkHUzIJCONNHM0+YuEokz7qZwbN4rnaqiIEtxdUo+YQ=",
+          "lt": "105907828000001",
+          "unix_time": 1793149619,
+          "aborted": false,
+          "gas_used": 4939,
+          "compute_fee_nano": 329268,
+          "storage_fee_nano": 4,
+          "action_fee_nano": 27110,
+          "total_fees_nano": 537050,
+          "outbound_forward_fees_nano": 54224,
+          "inbound_value_nano": 0,
+          "outbound_values_nano": [
+            10000000
+          ],
+          "balance_before_nano": 846379361,
+          "balance_after_nano": 835788087,
+          "balance_delta_nano": -10591274
+        },
+        {
+          "role": "recipient",
+          "account": "0:B8D6E48258E8E1EB8112B20BB4731A0F364E5DED3BEDBDF5E758EF7AF75D8954",
+          "hash": "BGhXiZyq3J6mfMaG+dsVSNYkxdJCty/Yy2szGrOHg/0=",
+          "lt": "105907828000003",
+          "unix_time": 1793149619,
+          "aborted": false,
+          "gas_used": 778,
+          "compute_fee_nano": 51868,
+          "storage_fee_nano": 4,
+          "action_fee_nano": 0,
+          "total_fees_nano": 51872,
+          "outbound_forward_fees_nano": 0,
+          "inbound_value_nano": 10000000,
+          "outbound_values_nano": [],
+          "balance_before_nano": 57758796,
+          "balance_after_nano": 67706924,
+          "balance_delta_nano": 9948128
+        }
+      ],
+      "network_fees_nano": 643146,
+      "sum_balance_deltas_nano": -643146
+    }
+  },
+  "configurations": {
+    "withdraw": {
+      "sha256": "c1dda7b6a791ea434ec55ca017349ad5a86bb108ef79b74d6555bc1e797ad824",
+      "params": {
+        "8": "b5ee9c7201010101000f00001ac40000001100000000000003ee",
+        "19": "b5ee9c72010101010006000008fffffffd",
+        "21": "b5ee9c7201010101004c000094d100000000000000640000000000001a0bde000000000042aaab00000000000f424000000000000f4240000000000000271000000000009896800000000005f5e100000000003b9aca00",
+        "25": "b5ee9c72010101010023000042ea000000000001046b000000000042aaab000000001a0aaaab0001800055555555"
+      }
+    },
+    "baseline": {
+      "sha256": "c1dda7b6a791ea434ec55ca017349ad5a86bb108ef79b74d6555bc1e797ad824",
+      "params": {
+        "8": "b5ee9c7201010101000f00001ac40000001100000000000003ee",
+        "19": "b5ee9c72010101010006000008fffffffd",
+        "21": "b5ee9c7201010101004c000094d100000000000000640000000000001a0bde000000000042aaab00000000000f424000000000000f4240000000000000271000000000009896800000000005f5e100000000003b9aca00",
+        "25": "b5ee9c72010101010023000042ea000000000001046b000000000042aaab000000001a0aaaab0001800055555555"
+      }
+    }
+  },
+  "wallet_code_hash": "71d67e17e8af4de8c843482f091ead58cf9f0acdd0210eb1cff5401ee04ced08",
+  "request_hash": "e88db3c57f96cd4b8915874fd5e5ee01e2dde9ea84ec6c7344cf0c8851d06ab4",
+  "post_state_public_key_and_sequence_checked": true,
+  "wallet_principal_debit_nano": 10000008,
+  "wallet_rent_nano": 8,
+  "withdrawal_to_v5_fee_ratio": 47.08157712245742,
+  "setup_plus_withdrawal_fees_nano": 32548163
+}

@@ -1,0 +1,19 @@
+{
+  "ton_commit": "857b8a57a178e6ae0fe7fa86e7d81c5233de8560",
+  "sources": {
+    "crypto/vm/cells/CellSlice.cpp": "31aa4feaef3428e02d09f636be5ce31b939e84c12922a5c827456ea63111b4b2",
+    "crypto/vm/cellops.cpp": "9584e368fde2ede21a074c7a7a712b9291d83cf14a82f304e22b0f2140d17dbf",
+    "crypto/vm/continuation.cpp": "1155605536573755e5e84c807e687d664d4e6e911b287840e667ca0e9e38bab6",
+    "crypto/vm/contops.cpp": "c75f18fd6a029da62e833a42428df781c8da46dea993f3334119c8c5194c243e",
+    "crypto/vm/dictops.cpp": "0ff272bca0007dc886511286d35dbec15bdf84f19b4d1fa768040d02168439b3",
+    "crypto/vm/opctable.cpp": "3e0ed5260e68dd9d4438e30b996e188b76fbfa7a333bb7ef686ab59f27203790",
+    "crypto/vm/tonops.cpp": "0b80c47b3187df3fbba5d9fa17f6b09d38e23f729d8c4905a13e347bbf44cba6",
+    "crypto/vm/vm.cpp": "7fbdd94d0b6a1b90f95344f1a00268fc2f0d57eb0e8ece9cffe2c5bce6a727d1",
+    "crypto/vm/vm.h": "5351b8ddd21cc701138844f26a12250cf0eff080950577e10f7d46461bb75669",
+    "crypto/block/transaction.cpp": "d4c8e21a6590a43d446f66b3a7f89bdbd6ee2c318d26e6bac997c0825a120ebb",
+    "crypto/vm/arithops.cpp": "d22e809e22e25bce055998a60557908f2780065a6f9c9969c6053d99c600c39c",
+    "crypto/vm/stackops.cpp": "de0d5eb669f49a7f137bc4e83fbb42783c1aee00037e267206c2df1083a8a575",
+    "crypto/vm/tupleops.cpp": "8629c1f98db85beb236cfcd02b942febd79e2b14e75c445e8bb841732769bf00",
+    "crypto/block/block.tlb": "7ce8f1903e181d2d106cea0e5f8a7e1a46f8a8186f1de2758016891b1eb6d7fb"
+  }
+}

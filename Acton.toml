@@ -1,0 +1,22 @@
+[package]
+name = "pq-ton-wallet"
+description = "Post-quantum TON wallet research"
+version = "0.1.0"
+license = "MIT"
+
+[toolchain]
+acton = "1.2.1"
+
+[contracts.SlhWallet]
+src = "contracts/SlhWallet.tolk"
+depends = []
+
+[fmt]
+width = 100
+ignore = []
+
+[import-mappings]
+acton = ".acton"
+contracts = "contracts"
+tests = "tests"
+wrappers = "wrappers"
